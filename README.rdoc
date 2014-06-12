@@ -1,0 +1,48 @@
+
+This app targets how effectively we can code in Rails. This app uses the facilities povided by Ruby and shows how we can make our code in a maintainable chuncks.
+Here I provided the way to maintain a glue between the models and view by using decorator pattern.
+This app also deals with many useful patterns like singleton, observer, decorator, presentor etc.
+
+For Development we use the following gems
+
+  gem "better_errors"
+  gem "binding_of_caller"
+
+Remove the unnecessary content in logs
+
+  gem "quiet_assets"
+config.quiet_assets = false
+
+Below is for having eye on eagerloading
+
+  gem "bullet"
+
+Configuration at developement.rb file
+
+config.after_initialize do
+  Bullet.enable = true
+  Bullet.alert = true
+  Bullet.bullet_logger = true
+  Bullet.console = true
+  Bullet.growl = true
+  Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
+                  :password => 'bullets_password_for_jabber',
+                  :receiver => 'your_account@jabber.org',
+                  :show_online_status => true }
+  Bullet.rails_logger = true
+  Bullet.bugsnag = true
+  Bullet.airbrake = true
+  Bullet.add_footer = true
+  Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+end
+
+Below is for generating graph to show database related relationships 
+  gem "railroady"
+
+All the below is for testing or debugging
+  gem "pry"
+  #gem "pry-rails"
+  gem "pry-remote"
+  gem "pry-nav"
+
+gem "meta_request" useful for chrome extension rails panel
