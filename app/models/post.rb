@@ -9,7 +9,7 @@ class Post
   include ActiveModel::Validations
   validates :title, presence: true
 
-  attr_accessor :title,:blog,:body,:pubdate
+  attr_accessor :title,:blog,:body,:pubdate,:image_url
   
   def initialize(args = {})
     args.each{ |k,v| send("#{k}=",v) } 
@@ -23,5 +23,8 @@ class Post
 
   def persisted?
     false
+  end
+  def picture?
+      image_url.present?
   end
 end

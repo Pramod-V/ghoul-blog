@@ -16,6 +16,10 @@ we can pass *args to another method but we can't use *args to retrieve or ittera
 
 If we send collection at partial then no need to itterate overthere
 
+------------------------- Exhibit Pattern ------------------------
+
+Basically, here we have two post types: a "picture post", and a "text post". The core of OO philosophy is representing discrete concepts as objects. So let's take these two concepts and represent them as objects.
+But what kind of objects? The models in an MVC application are supposed to be presentation-agnostic—they shouldn't know anything about how to display themselves. And we know we don't want to put business logic into the views. It seems like we need a third kind of object between a Model and a View.
 
 To satisfy our need for an object which mates a model and a view, we’ll use
 what I’ve taken to calling an Exhibit object. If the Model is concerned with
@@ -26,3 +30,4 @@ presentation-specific information (such as the specific URLs for related re-
 sources) which the business model has no knowledge of by itself.
 
 
+Technically, exhibit objects are a type of Decorator specialized for presenting models to an end user.
